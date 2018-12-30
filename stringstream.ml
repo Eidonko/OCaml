@@ -131,3 +131,33 @@ let words str =
 
 
 let test_words = words "This is a simple test of the tokenization procedure";;
+
+(*
+    $ ocaml
+            OCaml version 4.05.0
+
+    # #use "stringstream.ml";;
+    type ltable = (string * string list) list
+    type distribution = { total : int; amounts : (string * int) list; }
+    module StringStream :
+      sig
+        type strfile = { mutable pos : int; str : string; last : int; }
+        val empty : 'a list
+        val sopen : string -> strfile
+        val sclose : strfile -> bool
+        val isopen : strfile -> bool
+        val getchar : strfile -> char option
+        val seechar : strfile -> char option
+        val sreset : strfile -> strfile
+        val sreopen : string -> strfile
+      end
+    val is_alpha : char -> bool = <fun>
+    val is_digit : char -> bool = <fun>
+    type classes = EoS | WhiteSpace | Valid
+    val charclass : char option -> classes = <fun>
+    val tokenize : StringStream.strfile -> string = <fun>
+    val words : string -> string list = <fun>
+    val test_words : string list =
+      ["This"; "is"; "a"; "simple"; "test"; "of"; "the"; "tokenization";
+       "procedure"]
+ *)
